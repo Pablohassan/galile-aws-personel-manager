@@ -12,7 +12,11 @@ module.exports.resource = () => ({
         IgnorePublicAcls: true,
         RestrictPublicBuckets: true,
       },
-      
+
+      WebsiteConfiguration: {
+        IndexDocument: "index.html",
+        ErrorDocument: "index.html",
+      },
 
       Tags: tags,
       VersioningConfiguration: {

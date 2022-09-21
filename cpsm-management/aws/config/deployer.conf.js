@@ -35,7 +35,6 @@ module.exports = {
     {
       mode: "sync",
       input: path.join("web_app", "build"),
-      bucketPath: "dist",
       bucket: s3.bucket.webapp.name,
     },
 
