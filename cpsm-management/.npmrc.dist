@@ -1,0 +1,4 @@
+registry = https://nexus.galilee.fr/repository/npm-galilee-all/
+email = xxxxx@galilee.fr
+always-auth = true
+_auth = xxxxx

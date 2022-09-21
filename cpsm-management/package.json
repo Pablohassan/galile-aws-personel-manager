@@ -1,38 +1,24 @@
 {
-  "name": "cpsm-management",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@testing-library/jest-dom": "^5.16.5",
-    "@testing-library/react": "^13.4.0",
-    "@testing-library/user-event": "^13.5.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-scripts": "5.0.1",
-    "web-vitals": "^2.1.4"
-  },
+  "name": "@cpsm/management",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "deploy:base": "awsd deploy -c=aws/config/deployer.conf.js",
+    "deploy": "awsd-env --tty -c 'npm run deploy:base --prefix app'",
+    "postdeploy": "if [ -x \"$(command -v jq)\" ]; then find .build -type f -name '*.outputs.json' -exec jq -r '.[] | \"\\(.OutputKey): \\(.OutputValue)\"' '{}' \\;; fi",
+    "changelog:build": "git log --no-merges --date=format:\"%Y/%m/%d\" --pretty=format:\"%s (<span style=\\\"color:blue\\\">%ad</span> by <span style=\\\"color:red\\\">%an</span> @[https://gitlab.galilee.fr/infrastructure/cpsm/management/-/commit/%h %h])\"",
+   
+
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
+  "repository": {
+    "type": "git",
+    "url": "git@gitlab.galilee.fr:infrastructure/cpsm/management.git"
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+  "author": "",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "@galilee/aws-deployer": "^2.0.32"
   }
 }
