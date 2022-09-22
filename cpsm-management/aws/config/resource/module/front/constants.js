@@ -16,14 +16,20 @@ const constants = {
   cloudFront: {
     originAccessIdentity: {
       webapp: setOriginAccessIdentity("WebApp"),
+      clientapp: setOriginAccessIdentity("ClientApp"),
     },
   },
 
   s3: {
     bucket: {
       webapp: setS3Bucket("WebApp"),
+
+      clientapp: setS3Bucket("clientapp"),
     },
+
     bucketPolicy: {
+      clientapp: setS3BucketPolicy("ClientApp"),
+
       webapp: setS3BucketPolicy("WebApp"),
     },
   },

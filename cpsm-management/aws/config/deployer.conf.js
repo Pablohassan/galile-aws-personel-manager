@@ -37,6 +37,11 @@ module.exports = {
       input: path.join("web_app", "build"),
       bucket: s3.bucket.webapp.name,
     },
+    {
+      mode: "sync",
+      input: path.join("web_app", "build"),
+      bucket: s3.bucket.clientapp.name,
+    },
 
     
     
