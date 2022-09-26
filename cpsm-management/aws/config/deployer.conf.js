@@ -1,7 +1,7 @@
 const path = require("path");
 const { tags } = require("./resource/main/constants");
-const { s3 } = require("./resource/module/front/constants",);
-
+const { s3 } = require("./resource/module/front/constants");
+const { s3: s3ClientApp} = require("./resource/module/client_app/constants");
 
 const { stage, app, version } = require("./envs");
 
@@ -39,11 +39,8 @@ module.exports = {
     },
     {
       mode: "sync",
-      input: path.join("web_app", "build"),
-      bucket: s3.bucket.clientapp.name,
+      input: path.join("client_app", "build"),
+      bucket: s3ClientApp.bucket.clientapp.name,
     },
-
-    
-    
   ],
 };

@@ -7,10 +7,6 @@ module.exports.resource = () => ({
       CloudFrontOriginAccessIdentityConfig: {
         Comment: ` acess-identity-${s3.bucket.webapp.name}.S3.amazonaws.com `,
       },
-
-     
-      
-
     },
   },
 });

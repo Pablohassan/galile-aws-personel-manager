@@ -1,4 +1,4 @@
-const { cloudFront, s3 } = require("../../constants");
+const { cloudFront, s3 } = require("../../../client_app/constants");
 
 module.exports.resource = () => ({
   [cloudFront.originAccessIdentity.clientapp.ref]: {
@@ -7,10 +7,6 @@ module.exports.resource = () => ({
       CloudFrontOriginAccessIdentityConfig: {
         Comment: ` acess-identity-${s3.bucket.clientapp.name}.S3.amazonaws.com `,
       },
-
-     
-      
-
     },
   },
 });

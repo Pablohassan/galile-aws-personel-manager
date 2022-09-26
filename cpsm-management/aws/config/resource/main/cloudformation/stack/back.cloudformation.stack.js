@@ -1,9 +1,4 @@
-// Root
 const { cloudformation } = require("../../constants");
-
-// Common
-
-
 const { tags } = require("../../../module/back/constants");
 
 module.exports.nestedStackName = cloudformation.stack.back.name;

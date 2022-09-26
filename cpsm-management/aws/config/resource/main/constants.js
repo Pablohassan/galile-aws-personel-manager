@@ -13,8 +13,9 @@ const constants = {
   ],
   cloudformation: {
     stack: {
-      front: setNestedStack("Front"), //(nestedstack pour les nomage des versions)
+      front: setNestedStack("Front"), //(nestedStack pour les nomage des versions)
       back: setNestedStack("Back"),
+      clientapp: setNestedStack("ClientApp")
     },
   },
 };
