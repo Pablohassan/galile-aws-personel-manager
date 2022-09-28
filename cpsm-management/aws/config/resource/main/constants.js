@@ -15,11 +15,13 @@ const constants = {
     stack: {
       front: setNestedStack("Front"), //(nestedStack pour les nomage des versions)
       back: setNestedStack("Back"),
-      clientapp: setNestedStack("ClientApp")
+      clientapp: setNestedStack("ClientApp"),
     },
   },
 };
 
 constants.variables = {};
+
+constants.parameters = {};
 
 module.exports = constants;

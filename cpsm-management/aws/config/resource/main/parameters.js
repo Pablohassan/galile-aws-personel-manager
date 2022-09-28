@@ -1,1 +1,5 @@
-module.exports.parameter = () => ({});
+const {parameters} = require('./constants');
+
+module.exports.parameter = () => ({
+  
+});

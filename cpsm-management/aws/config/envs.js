@@ -21,9 +21,14 @@ const isLambdaVpcDisabled = APP_LAMBDA_VPC_DISABLED === 'true';
 
 
 
+
+
+
+
 module.exports = {
   app: 'cm',
   version,
+  
   debug,
   stage,
   region,

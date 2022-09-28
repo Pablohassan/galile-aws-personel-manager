@@ -1,5 +1,4 @@
 const { cloudformation } = require("../../constants");
-
 const { tags } = require("../../../module/front/constants");
 
 module.exports.nestedStackName = cloudformation.stack.front.name;

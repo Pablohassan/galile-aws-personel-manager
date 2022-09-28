@@ -3,7 +3,14 @@ const { stage, app } = require("../../../envs");
 const { tags: tagsMain } = require("../../main/constants");
 const moduleName = "front";
 
-const { setS3Bucket, setS3BucketPolicy, setOriginAccessIdentity} = naming(
+const {
+  setCloudFrontFunction,
+  setS3Bucket,
+  setS3BucketPolicy,
+  setOriginAccessIdentity,
+  setCloudFrontOriginRequestPolicy,
+  setCloudFront,
+} = naming(
   stage,
   moduleName.toUpperCase(),
   `${moduleName}-${app}`.toLowerCase()
@@ -13,8 +20,17 @@ const constants = {
   tags: [...tagsMain, { Key: "client:subproject", Value: moduleName }],
 
   cloudFront: {
+    distribution: {
+      webapp: setCloudFront("WebApp"),
+    },
+    function: {
+      webapp: setCloudFrontFunction("WebApp"),
+    },
     originAccessIdentity: {
       webapp: setOriginAccessIdentity("WebApp"),
+    },
+    originRequestPolicy: {
+      viewerS3: setCloudFrontOriginRequestPolicy("ViewerS3"),
     },
   },
 
@@ -30,5 +46,8 @@ const constants = {
 };
 
 constants.variables = {};
+constants.parameters = {
+};
+
 
 module.exports = constants;
