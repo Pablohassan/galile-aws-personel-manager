@@ -1,10 +1,10 @@
 const { cloudFront } = require("../../constants");
 
 module.exports.resource = () => ({
-  [cloudFront.function.webapp.ref]: {
+  [cloudFront.function.webApp.ref]: {
     Type: "AWS::CloudFront::Function",
     Properties: {
-      Name: cloudFront.function.webapp.name,
+      Name: cloudFront.function.webApp.name,
       AutoPublish: true,
       FunctionCode: `function handler(event) {
         var request = event.request;

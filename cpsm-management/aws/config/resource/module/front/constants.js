@@ -7,7 +7,7 @@ const {
   setCloudFrontFunction,
   setS3Bucket,
   setS3BucketPolicy,
-  setOriginAccessIdentity,
+  setOriginAccessControl,
   setCloudFrontOriginRequestPolicy,
   setCloudFront,
 } = naming(
@@ -21,14 +21,15 @@ const constants = {
 
   cloudFront: {
     distribution: {
-      webapp: setCloudFront("WebApp"),
+      webApp: setCloudFront("WebApp"),
     },
     function: {
-      webapp: setCloudFrontFunction("WebApp"),
+      webApp: setCloudFrontFunction("WebApp"),
     },
-    originAccessIdentity: {
-      webapp: setOriginAccessIdentity("WebApp"),
+    originAccessControl: {
+      webApp: setOriginAccessControl("WebApp"),
     },
+    
     originRequestPolicy: {
       viewerS3: setCloudFrontOriginRequestPolicy("ViewerS3"),
     },
@@ -36,18 +37,16 @@ const constants = {
 
   s3: {
     bucket: {
-      webapp: setS3Bucket("WebApp"),
+      webApp: setS3Bucket("WebApp"),
     },
 
     bucketPolicy: {
-      webapp: setS3BucketPolicy("WebApp"),
+      webApp: setS3BucketPolicy("WebApp"),
     },
   },
 };
 
 constants.variables = {};
-constants.parameters = {
-};
-
+constants.parameters = {};
 
 module.exports = constants;
